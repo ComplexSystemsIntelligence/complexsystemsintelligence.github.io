@@ -12,7 +12,7 @@ The site is served by GitHub Pages from the `main` branch. The textbooks themsel
 repositories and are published under this domain:
 [adatbanyaszat](https://complexsystemsintelligence.github.io/adatbanyaszat/),
 [biztonsagkritikus-rendszerek](https://complexsystemsintelligence.github.io/biztonsagkritikus-rendszerek/),
-[rendszermernokseg](https://github.com/ComplexSystemsIntelligence/rendszermernokseg).
+[rendszermernokseg](https://complexsystemsintelligence.github.io/rendszermernokseg/).
 
 The name, crest and logo of the University of Pannonia are elements of the university's visual
 identity and are not covered by any open licence.
