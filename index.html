@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Complex Systems Intelligence · AbonyiLab – University of Pannonia</title>
+<meta name="description" content="Open textbooks, research software and data of the HUN-REN–PE Complex Systems Monitoring Research Group (AbonyiLab) at the University of Pannonia, Veszprém, Hungary.">
+<meta name="theme-color" content="#285780">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://complexsystemsintelligence.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Complex Systems Intelligence · AbonyiLab">
+<meta property="og:description" content="Open textbooks, research software and data of the HUN-REN–PE Complex Systems Monitoring Research Group, University of Pannonia.">
+<meta property="og:url" content="https://complexsystemsintelligence.github.io/">
+<meta property="og:image" content="https://complexsystemsintelligence.github.io/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/raleway-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Raleway";font-weight:900;font-style:normal;font-display:swap;src:url(assets/fonts/raleway-900.woff2) format("woff2")}
+@font-face{font-family:"Raleway";font-weight:700;font-style:normal;font-display:swap;src:url(assets/fonts/raleway-700.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-weight:400;font-style:normal;font-display:swap;src:url(assets/fonts/plex-sans-400.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-weight:600;font-style:normal;font-display:swap;src:url(assets/fonts/plex-sans-600.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Serif";font-weight:400;font-style:normal;font-display:swap;src:url(assets/fonts/plex-serif-400.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Serif";font-weight:400;font-style:italic;font-display:swap;src:url(assets/fonts/plex-serif-400i.woff2) format("woff2")}
+
+:root{
+  --blue:#285780; --dark:#1B3A57; --deep:#142C43; --mid:#4F7FAD; --light:#E6EEF6; --wash:#F4F7FB;
+  --orange:#E07B39; --orange-soft:#F2B48A; --ink:#1F2933; --muted:#5B6775; --line:#D6E0EA;
+  --head:"Raleway",system-ui,sans-serif; --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --serif:"IBM Plex Serif",Georgia,serif;
+  --wrap:1180px; --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;font:400 17px/1.6 var(--sans);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--dark)}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 14px;z-index:100}
+.skip:focus{left:12px}
+
+/* navigation */
+.nav{position:sticky;top:0;z-index:50;background:rgba(27,58,87,.94);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav .wrap{display:flex;align-items:center;gap:28px;height:64px}
+.nav .brand{display:flex;align-items:center;gap:14px;color:#fff;text-decoration:none;flex:none}
+.nav .brand img{height:38px;width:auto}
+.nav .brand span{font:900 15px/1.15 var(--head);letter-spacing:.2px;border-left:1px solid rgba(255,255,255,.28);padding-left:14px}
+.nav nav{min-width:0;flex:1;display:flex}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0 0 0 auto;padding:0;overflow-x:auto;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav li a{display:block;padding:8px 12px;border-radius:8px;color:#DCE7F2;text-decoration:none;font:700 14px/1 var(--head);letter-spacing:.3px;white-space:nowrap}
+.nav li a:hover{background:rgba(255,255,255,.1);color:#fff}
+.nav li a.ext{color:#fff;border:1px solid rgba(255,255,255,.35)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,#2D5F8B 0%,#285780 45%,#224A6F 100%);padding:84px 0 150px}
+.hero .crest{position:absolute;right:-60px;top:-30px;height:118%;width:auto;opacity:.055;pointer-events:none}
+.hero canvas{position:absolute;right:0;top:0;width:52%;height:100%;pointer-events:none}
+.hero .wrap{position:relative}
+.kicker{font:700 14px/1.3 var(--head);letter-spacing:1.6px;text-transform:uppercase;color:var(--orange)}
+.hero .kicker{color:var(--orange-soft)}
+.hero h1{font:900 clamp(44px,7vw,88px)/1.0 var(--head);letter-spacing:-1px;margin:18px 0 22px;max-width:760px}
+.hero .lead{font:400 italic clamp(19px,2.1vw,24px)/1.45 var(--serif);color:#DCE7F2;max-width:640px;margin:0 0 34px}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:10px;font:700 15px/1 var(--head);letter-spacing:.3px;text-decoration:none;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--orange);color:#fff}
+.btn.primary:hover{background:#C9682A;color:#fff}
+.btn.ghost{color:#fff;border:1.5px solid rgba(255,255,255,.55)}
+.btn.ghost:hover{background:rgba(255,255,255,.1);color:#fff}
+.btn .arr{font-family:var(--sans);font-weight:600}
+.stats{display:flex;flex-wrap:wrap;gap:12px 44px;margin:54px 0 0;padding:0;list-style:none}
+.stats li{display:flex;flex-direction:column}
+.stats b{font:900 34px/1 var(--head)}
+.stats span{font-size:14px;color:#C9D6E3;margin-top:6px}
+.slant{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:110px}
+
+/* sections */
+section{padding:88px 0}
+section.alt{background:var(--wash)}
+.shead{max-width:760px;margin-bottom:44px}
+.shead h2{font:900 clamp(30px,4vw,44px)/1.1 var(--head);color:var(--blue);margin:10px 0 16px;letter-spacing:-.4px}
+.shead p{margin:0;color:var(--muted);font-size:18px}
+
+/* about */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+.about p{margin:0 0 18px}
+.about .mission{font:400 italic 24px/1.45 var(--serif);color:var(--dark);border-left:4px solid var(--orange);padding:4px 0 4px 22px;margin:0 0 26px}
+.facts{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 28px}
+.facts dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:12px 20px}
+.facts dt{font:700 13px/1.5 var(--head);letter-spacing:.8px;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.facts dd{margin:0}
+
+/* flow */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:46px;margin-top:56px;position:relative;counter-reset:st}
+.step{background:#fff;border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:var(--r);padding:22px 22px 24px;position:relative}
+.step::before{counter-increment:st;content:"0" counter(st);font:700 14px/1 var(--head);letter-spacing:1.5px;color:var(--orange)}
+.step h3{font:900 22px/1.15 var(--head);color:var(--blue);margin:10px 0 10px}
+.step p{margin:0;font-size:15.5px;color:var(--muted);line-height:1.5}
+.step:not(:last-child)::after{content:"";position:absolute;right:-36px;top:50%;width:26px;height:2px;background:#9FB5CB}
+.step:not(:last-child) .tip{position:absolute;right:-38px;top:calc(50% - 5px);width:0;height:0;border-left:8px solid #9FB5CB;border-top:6px solid transparent;border-bottom:6px solid transparent}
+.loop{margin:26px auto 0;max-width:calc(75% + 10px);height:46px;border:2px dashed var(--orange);border-top:0;border-radius:0 0 40px 40px;position:relative}
+.loop::before{content:"";position:absolute;left:-7px;top:-4px;border-bottom:10px solid var(--orange);border-left:6px solid transparent;border-right:6px solid transparent}
+.loop-label{text-align:center;font:400 italic 19px/1.4 var(--serif);color:#8A5A35;margin-top:12px}
+
+/* textbooks */
+.books{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.book{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s ease,transform .2s ease}
+.book:hover{box-shadow:0 18px 40px -22px rgba(27,58,87,.45);transform:translateY(-2px)}
+.book .cover{background:linear-gradient(160deg,var(--light),#fff);padding:30px 0 0;display:flex;justify-content:center;border-bottom:1px solid var(--line);height:300px;overflow:hidden}
+.book .cover img{width:220px;height:auto;box-shadow:0 12px 30px -10px rgba(20,44,67,.45);border-radius:3px 3px 0 0}
+.book .body{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1}
+.book .tag{font:700 12px/1 var(--head);letter-spacing:1.2px;text-transform:uppercase;color:var(--orange)}
+.book h3{font:900 25px/1.15 var(--head);color:var(--blue);margin:10px 0 6px}
+.book .en{font:400 italic 17px/1.4 var(--serif);color:var(--dark);margin:0 0 14px}
+.book p.desc{font-size:15.5px;color:var(--muted);margin:0 0 16px;line-height:1.55}
+.book ul.meta{list-style:none;padding:0;margin:0 0 20px;display:flex;flex-wrap:wrap;gap:8px}
+.book ul.meta li{font-size:13px;font-weight:600;color:var(--dark);background:var(--light);border-radius:999px;padding:5px 11px}
+.book .links{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px}
+.book .links a{font:700 13.5px/1 var(--head);letter-spacing:.2px;text-decoration:none;padding:10px 13px;border-radius:8px;border:1.5px solid var(--line);color:var(--blue)}
+.book .links a:hover{border-color:var(--blue);background:var(--wash)}
+.book .links a.main{background:var(--blue);border-color:var(--blue);color:#fff}
+.book .links a.main:hover{background:var(--dark)}
+.book .soon{font:700 13.5px/1 var(--head);color:var(--muted);padding:10px 13px;border-radius:8px;background:var(--wash);border:1.5px dashed var(--line)}
+.series{margin-top:46px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r);background:#fff}
+.series div{padding:22px 24px;border-right:1px solid var(--line)}
+.series div:last-child{border-right:0}
+.series b{display:block;font:900 17px/1.25 var(--head);color:var(--blue);margin-bottom:6px}
+.series span{font-size:14.5px;color:var(--muted);line-height:1.5;display:block}
+
+/* research */
+.areas{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.area{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 26px 24px;position:relative;transition:border-color .2s ease,box-shadow .2s ease}
+.area:hover{border-color:var(--mid);box-shadow:0 14px 34px -24px rgba(27,58,87,.55);color:inherit}
+.area .n{font:700 13px/1 var(--head);letter-spacing:1.5px;color:var(--orange)}
+.area h3{font:900 21px/1.2 var(--head);color:var(--blue);margin:10px 0 10px}
+.area p{margin:0;font-size:15px;color:var(--muted);line-height:1.55}
+.area .go{position:absolute;right:22px;top:24px;color:var(--mid);font-weight:600}
+
+/* software */
+.sw{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.sw article{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 28px}
+.sw h3{font:900 19px/1.25 var(--head);color:var(--blue);margin:0 0 12px}
+.sw ul{margin:0;padding-left:18px}
+.sw li{margin:0 0 8px;font-size:15.5px}
+.sw li span{color:var(--muted)}
+.more{margin-top:26px}
+
+/* monographs */
+.mono{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px}
+.mono li{display:grid;grid-template-columns:62px 1fr;gap:16px;padding:18px 0;border-top:1px solid var(--line)}
+.mono .y{font:900 22px/1.2 var(--head);color:var(--orange)}
+.mono a{font-weight:600;text-decoration:none;color:var(--dark)}
+.mono a:hover{color:var(--blue);text-decoration:underline}
+.mono .au{display:block;font-size:14.5px;color:var(--muted);margin-top:3px}
+
+/* people / contact */
+.people{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:start}
+.team{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.person{border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;background:#fff}
+.person b{display:block;font:900 18px/1.25 var(--head);color:var(--blue)}
+.person span{font-size:14.5px;color:var(--muted)}
+.contact{background:var(--blue);color:#fff;border-radius:18px;padding:30px 32px 46px;position:relative;overflow:hidden}
+.contact h3{font:900 24px/1.2 var(--head);margin:0 0 14px}
+.contact p{margin:0 0 14px;color:#DCE7F2}
+.contact a{color:#fff}
+.contact .btn{margin-top:8px}
+.contact::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22px;background:var(--dark);clip-path:polygon(0 70%,100% 0,100% 100%,0 100%)}
+
+/* footer */
+footer{background:var(--deep);color:#B7C6D6;padding:56px 0 40px;font-size:14.5px}
+footer .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;align-items:center;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.12)}
+footer .top img{height:54px;width:auto}
+footer nav a{color:#DCE7F2;text-decoration:none;margin-left:22px;font:700 14px/1 var(--head)}
+footer nav a:first-child{margin-left:0}
+footer nav a:hover{color:#fff;text-decoration:underline}
+footer .fine{padding-top:24px;line-height:1.6}
+footer .fine a{color:#DCE7F2}
+
+@media (max-width:1020px){
+  .books{grid-template-columns:1fr 1fr}
+  .series{grid-template-columns:1fr 1fr}
+  .series div:nth-child(2){border-right:0}
+  .series div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .about,.people{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr 1fr;gap:22px}
+  .step::after,.step .tip{display:none}
+  .loop{display:none}
+  .loop-label{text-align:left}
+  .hero canvas{opacity:.45;width:70%}
+}
+@media (max-width:720px){
+  body{font-size:16px}
+  .wrap{padding:0 20px}
+  .nav .brand span{display:none}
+  .nav .wrap{gap:12px}
+  .hero{padding:56px 0 120px}
+  .hero canvas{width:100%;opacity:.25}
+  .books,.areas,.sw,.mono,.team,.flow,.series{grid-template-columns:1fr}
+  .series div{border-right:0;border-bottom:1px solid var(--line)}
+  .series div:last-child{border-bottom:0}
+  section{padding:64px 0}
+  .stats{gap:18px 30px}
+  footer nav a{margin:0 18px 0 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.book,.area{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="https://uni-pannon.hu" aria-label="University of Pannonia"><img src="assets/logo/pe-logo-white.svg" alt="Pannon Egyetem – University of Pannonia" width="141" height="38"><span>Complex Systems<br>Intelligence</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#textbooks">Textbooks</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#software">Software &amp; data</a></li>
+        <li><a href="#monographs">Books</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="ext" href="https://www.abonyilab.com">abonyilab.com ↗</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="hero-title">
+  <img class="crest" src="assets/logo/pe-crest-white.svg" alt="" aria-hidden="true">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="kicker">Helping complex socio-technical systems learn</div>
+    <h1 id="hero-title">Complex Systems Intelligence</h1>
+    <p class="lead">Open textbooks, interactive learning tools, research software and data from the HUN-REN–PE Complex Systems Monitoring Research Group at the University of Pannonia.</p>
+    <div class="btns">
+      <a class="btn primary" href="#textbooks">Explore the open textbooks <span class="arr">↓</span></a>
+      <a class="btn ghost" href="https://www.abonyilab.com">Visit the research group <span class="arr">↗</span></a>
+    </div>
+    <ul class="stats" aria-label="At a glance">
+      <li><b>3</b><span>open textbooks</span></li>
+      <li><b>59</b><span>handbook chapters</span></li>
+      <li><b>23+</b><span>browser practice apps</span></li>
+      <li><b>22+</b><span>Colab notebooks</span></li>
+    </ul>
+  </div>
+  <svg class="slant" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true"><polygon points="0,100 1440,30 1440,40 0,110" fill="#E07B39"/><polygon points="0,110 1440,40 1440,110" fill="#fff"/></svg>
+</section>
+
+<section id="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <div class="about">
+      <div>
+        <div class="kicker">About the group</div>
+        <div class="shead" style="margin-bottom:24px"><h2 id="about-title">From data to systems that learn</h2></div>
+        <p class="mission">We turn data from interconnected processes, organisations and regions into transparent models, monitoring tools and decision support.</p>
+        <p>This site is the open-education and open-science home of the <a href="https://www.abonyilab.com">Complex Systems Monitoring Research Group</a> (AbonyiLab) at the <a href="https://uni-pannon.hu">University of Pannonia</a>, Veszprém, Hungary. Alongside research, the group trains the engineers and data scientists who build such systems – and publishes the teaching materials openly, so that anyone can learn from them.</p>
+        <p>Research code and earlier toolboxes are available on <a href="https://github.com/abonyilab">github.com/abonyilab</a>; news, publications and projects on <a href="https://www.abonyilab.com/about-us/news">abonyilab.com</a>.</p>
+      </div>
+      <aside class="facts" aria-label="Group facts">
+        <dl>
+          <dt>Group</dt><dd>HUN-REN–PE Complex Systems Monitoring Research Group</dd>
+          <dt>Host</dt><dd>University of Pannonia, Veszprém, Hungary</dd>
+          <dt>Founded</dt><dd>2017, within the Lendület programme of the Hungarian Academy of Sciences</dd>
+          <dt>Network</dt><dd>Supported by the Hungarian Research Network (HUN-REN) since 2022</dd>
+          <dt>Head</dt><dd>Prof. János Abonyi</dd>
+          <dt>Web</dt><dd><a href="https://www.abonyilab.com">www.abonyilab.com</a></dd>
+        </dl>
+      </aside>
+    </div>
+
+    <div class="flow" role="list" aria-label="How we work">
+      <div class="step" role="listitem"><span class="tip"></span><h3>Interconnected systems</h3><p>Processes, organisations and regions that generate data</p></div>
+      <div class="step" role="listitem"><span class="tip"></span><h3>Data</h3><p>Time series, event logs, text and networks from sensors and IT systems</p></div>
+      <div class="step" role="listitem"><span class="tip"></span><h3>Transparent models</h3><p>Fuzzy and network models, interpretable machine learning and LLMs</p></div>
+      <div class="step" role="listitem"><h3>Monitoring &amp; decision support</h3><p>Soft sensors, digital twins, alarm, quality and risk management</p></div>
+    </div>
+    <div class="loop" aria-hidden="true"></div>
+    <div class="loop-label">… and feedback that lets the socio-technical system learn</div>
+  </div>
+</section>
+
+<section id="textbooks" class="alt" aria-labelledby="tb-title">
+  <div class="wrap">
+    <div class="shead">
+      <div class="kicker">Open textbooks</div>
+      <h2 id="tb-title">Learn it, try it, run it</h2>
+      <p>Open-access university textbooks in Hungarian. Each one is a searchable web book with printable PDF and EPUB editions, practice apps that run in the browser and Google Colab notebooks that run with one click.</p>
+    </div>
+
+    <div class="books">
+      <article class="book">
+        <a class="cover" href="https://complexsystemsintelligence.github.io/adatbanyaszat/" tabindex="-1" aria-hidden="true"><picture><source srcset="assets/covers/adatbanyaszat.webp" type="image/webp"><img src="assets/covers/adatbanyaszat.jpg" alt="" width="220" height="312"></picture></a>
+        <div class="body">
+          <div class="tag">Data science</div>
+          <h3>Adatbányászat</h3>
+          <p class="en">Data Mining: Theory and Practice in Python</p>
+          <p class="desc">From data preparation, clustering and association rules through predictive modelling and deep learning to anomaly detection, time series and text mining – built around two running cases, an online shop and a process plant.</p>
+          <ul class="meta"><li>2nd, fully revised edition</li><li>15 chapters</li><li>14 practice apps</li><li>15 Colab notebooks</li></ul>
+          <div class="links">
+            <a class="main" href="https://complexsystemsintelligence.github.io/adatbanyaszat/">Read online</a>
+            <a href="https://complexsystemsintelligence.github.io/adatbanyaszat/adatbanyaszat.pdf">PDF</a>
+            <a href="https://complexsystemsintelligence.github.io/adatbanyaszat/adatbanyaszat.epub">EPUB</a>
+            <a href="https://github.com/ComplexSystemsIntelligence/adatbanyaszat">Source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="book">
+        <a class="cover" href="https://complexsystemsintelligence.github.io/biztonsagkritikus-rendszerek/" tabindex="-1" aria-hidden="true"><picture><source srcset="assets/covers/biztonsagkritikus-rendszerek.webp" type="image/webp"><img src="assets/covers/biztonsagkritikus-rendszerek.jpg" alt="" width="220" height="311"></picture></a>
+        <div class="body">
+          <div class="tag">Safety engineering</div>
+          <h3>Biztonságkritikus rendszerek</h3>
+          <p class="en">Safety-Critical Systems: Risk, Reliability and Functional Safety</p>
+          <p class="desc">From accident models, HAZOP, FMEA and STPA through fault trees, Markov models and SIL verification to safety cases, machine learning and cybersecurity – with three running industrial cases.</p>
+          <ul class="meta"><li>Handbook + practical guide</li><li>18 chapters</li><li>12 labs</li><li>9 practice apps</li><li>7 Colab notebooks</li></ul>
+          <div class="links">
+            <a class="main" href="https://complexsystemsintelligence.github.io/biztonsagkritikus-rendszerek/">Read online</a>
+            <a href="https://complexsystemsintelligence.github.io/biztonsagkritikus-rendszerek/kezikonyv/biztonsagkritikus-rendszerek.pdf">PDF</a>
+            <a href="https://complexsystemsintelligence.github.io/biztonsagkritikus-rendszerek/kezikonyv/biztonsagkritikus-rendszerek.epub">EPUB</a>
+            <a href="https://github.com/ComplexSystemsIntelligence/biztonsagkritikus-rendszerek">Source</a>
+            <a href="https://doi.org/10.5281/zenodo.24413011">DOI</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="book">
+        <a class="cover" href="https://github.com/ComplexSystemsIntelligence/rendszermernokseg" tabindex="-1" aria-hidden="true"><picture><source srcset="assets/covers/rendszermernokseg.webp" type="image/webp"><img src="assets/covers/rendszermernokseg.jpg" alt="" width="220" height="311"></picture></a>
+        <div class="body">
+          <div class="tag">Systems engineering</div>
+          <h3>Rendszermérnökség</h3>
+          <p class="en">Systems Engineering: System Development along the V-Model</p>
+          <p class="desc">Following the V-model from stakeholders and requirements through architecture, decision making, human-centred design and risk to verification, validation and operation – with a practical toolkit of methods.</p>
+          <ul class="meta"><li>Handbook + toolkit</li><li>26 chapters</li><li>55 toolkit methods</li></ul>
+          <div class="links">
+            <span class="soon">Web edition launching soon</span>
+            <a href="https://github.com/ComplexSystemsIntelligence/rendszermernokseg">Source</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="series" aria-label="How the textbooks are made">
+      <div><b>Read anywhere</b><span>Searchable web book, printable PDF and EPUB for e-readers</span></div>
+      <div><b>Try it in the browser</b><span>Practice apps with no installation; Colab notebooks that run with one click</span></div>
+      <div><b>Reproducible</b><span>Figures drawn in TikZ; worked examples reproducible from the repositories</span></div>
+      <div><b>Open and citable</b><span>Creative Commons non-commercial licences for text, MIT for code; releases archived on Zenodo</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="research" aria-labelledby="ra-title">
+  <div class="wrap">
+    <div class="shead">
+      <div class="kicker">Research areas</div>
+      <h2 id="ra-title">Where the textbooks come from</h2>
+      <p>The teaching materials grow out of the group's research. Each area links to its pages, projects and publications on abonyilab.com.</p>
+    </div>
+    <div class="areas">
+      <a class="area" href="https://www.abonyilab.com/ai-data-science"><span class="go">↗</span><div class="n">01</div><h3>AI &amp; data science</h3><p>Large language models, clustering and classification, fuzzy modelling, process mining, time-series and text mining, visualisation</p></a>
+      <a class="area" href="https://www.abonyilab.com/industry-4-0-5-0"><span class="go">↗</span><div class="n">02</div><h3>Industry 4.0 &amp; 5.0</h3><p>Digital twins, Operator 4.0/5.0 and human aspects, indoor positioning, IoT, MES, production management</p></a>
+      <a class="area" href="https://www.abonyilab.com/systems-engineering"><span class="go">↗</span><div class="n">03</div><h3>Systems engineering</h3><p>Process monitoring and control, soft sensors, data reconciliation, alarm, quality, safety and risk management</p></a>
+      <a class="area" href="https://www.abonyilab.com/network-science"><span class="go">↗</span><div class="n">04</div><h3>Network science</h3><p>Structural analysis, controllability and observability of complex networks</p></a>
+      <a class="area" href="https://www.abonyilab.com/optimization"><span class="go">↗</span><div class="n">05</div><h3>Optimisation</h3><p>Evolutionary and multi-objective optimisation, design of experiments, reinforcement learning, optimisation under uncertainty</p></a>
+      <a class="area" href="https://www.abonyilab.com/environment-sustainability"><span class="go">↗</span><div class="n">06</div><h3>Sustainability</h3><p>Environmental monitoring, sustainable development goals, circular economy, climate change</p></a>
+    </div>
+  </div>
+</section>
+
+<section id="software" class="alt" aria-labelledby="sw-title">
+  <div class="wrap">
+    <div class="shead">
+      <div class="kicker">Software and data</div>
+      <h2 id="sw-title">Tools and datasets to build on</h2>
+    </div>
+    <div class="sw">
+      <article>
+        <h3>Research code</h3>
+        <ul>
+          <li><a href="https://github.com/abonyilab/NOCAD">NOCAD</a> <span>– network-based observability and controllability analysis of dynamical systems</span></li>
+          <li><a href="https://github.com/abonyilab/HAT-VIS_MATLAB">HAT-VIS</a> <span>– hypergraph visualisation toolbox</span></li>
+          <li><a href="https://github.com/abonyilab/Operator-4.0-Laboratory">Operator 4.0 Laboratory</a> <span>– data and scripts from laboratory demonstrations</span></li>
+          <li>ObServML <span>– deployable Python application for compact, modular systems monitoring (</span><a href="https://doi.org/10.1016/j.softx.2026.102596">SoftwareX, 2026</a><span>)</span></li>
+        </ul>
+      </article>
+      <article>
+        <h3>Toolboxes</h3>
+        <ul>
+          <li><a href="https://www.abonyilab.com/fclusttoolbox">Fuzzy Clustering and Data Analysis Toolbox</a> <span>– MATLAB; a Python successor is under development</span></li>
+          <li><a href="https://www.abonyilab.com/gp_index">GP-OLS</a> <span>– genetic programming for nonlinear input–output models</span></li>
+          <li><a href="https://www.abonyilab.com/easy_iec">EASY-IEC</a> <span>– interactive evolutionary computing</span></li>
+          <li><a href="http://www.mathworks.com/matlabcentral/fileexchange/authors/18034">MATLAB Central author page</a></li>
+        </ul>
+      </article>
+      <article>
+        <h3>Open datasets</h3>
+        <ul>
+          <li><a href="https://springernature.figshare.com/articles/Metadata_record_for_A_multilayer_and_spatial_description_of_the_Erasmus_mobility_network/11687310">Erasmus mobility network</a> <span>– multilayer, spatial network of European higher-education mobility (<em>Scientific Data</em>, 2020)</span></li>
+          <li><a href="https://doi.org/10.1016/j.dib.2021.106978">World news and SDG monitoring</a> <span>– news-based SDG data with BigQuery scripts (<em>Data in Brief</em>, 2021)</span></li>
+          <li><a href="http://dx.doi.org/10.17632/23gwn43ygp.1">Regional Industry 4.0 readiness index</a> <span>– 101 indicators for NUTS 2 regions (2020)</span></li>
+        </ul>
+      </article>
+      <article>
+        <h3>Everything else</h3>
+        <ul>
+          <li><a href="https://www.abonyilab.com/about-us/software-and-data">Full list of programs and data</a> <span>on the group website</span></li>
+          <li><a href="https://github.com/abonyilab">github.com/abonyilab</a> <span>– research repositories</span></li>
+          <li><a href="https://github.com/ComplexSystemsIntelligence">github.com/ComplexSystemsIntelligence</a> <span>– sources of the open textbooks</span></li>
+          <li><a href="https://scholar.google.com/citations?user=u1uw8A8AAAAJ">Google Scholar</a> <span>– publications</span></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="monographs" aria-labelledby="mono-title">
+  <div class="wrap">
+    <div class="shead">
+      <div class="kicker">Monographs</div>
+      <h2 id="mono-title">Books by the group</h2>
+    </div>
+    <ul class="mono">
+      <li><span class="y">2024</span><div><a href="https://doi.org/10.1007/978-3-031-47444-6">Ontology-Based Development of Industry 4.0 and 5.0 Solutions for Smart Manufacturing and Production</a><span class="au">J. Abonyi, L. Nagy, T. Ruppert · Springer</span></div></li>
+      <li><span class="y">2020</span><div><a href="https://doi.org/10.1007/978-3-030-53103-4">Are Regions Prepared for Industry 4.0? The Industry 4.0+ Indicator System for Assessment</a><span class="au">J. Abonyi, T. Czvetkó, G. M. Honti · Springer</span></div></li>
+      <li><span class="y">2020</span><div><a href="https://doi.org/10.1007/978-3-030-36472-4">Network-Based Analysis of Dynamical Systems</a><span class="au">D. Leitold, Á. Vathy-Fogarassy, J. Abonyi · Springer</span></div></li>
+      <li><span class="y">2015</span><div><a href="https://doi.org/10.1007/978-3-319-21942-4">Interpretability of Computational Intelligence-Based Regression Models</a><span class="au">T. Kenesei, J. Abonyi · Springer</span></div></li>
+      <li><span class="y">2013</span><div><a href="https://doi.org/10.1007/978-1-4471-5158-6">Graph-Based Clustering and Data Visualization Algorithms</a><span class="au">Á. Vathy-Fogarassy, J. Abonyi · Springer</span></div></li>
+      <li><span class="y">2007</span><div><a href="https://doi.org/10.1007/978-3-7643-7988-9">Cluster Analysis for Data Mining and System Identification</a><span class="au">J. Abonyi, B. Feil · Birkhäuser</span></div></li>
+      <li><span class="y">2003</span><div><a href="https://doi.org/10.1007/978-1-4612-0027-7">Fuzzy Model Identification for Control</a><span class="au">J. Abonyi · Birkhäuser</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact" class="alt" aria-labelledby="ct-title">
+  <div class="wrap">
+    <div class="shead">
+      <div class="kicker">People and contact</div>
+      <h2 id="ct-title">Work with us</h2>
+      <p>We welcome PhD students, researchers and industrial partners. Corrections and suggestions for the textbooks are welcome through the Issues page of each repository.</p>
+    </div>
+    <div class="people">
+      <div class="team">
+        <div class="person"><b>János Abonyi</b><span>Head of research group</span></div>
+        <div class="person"><b>Tamás Ruppert</b><span>Deputy head of research group</span></div>
+        <div class="person"><b>Alex Kummer</b><span>Lead researcher, data science and systems engineering</span></div>
+        <div class="person"><b>László Gadár</b><span>Lead researcher, network and data science</span></div>
+        <div class="person"><b>Viktor Sebestyén</b><span>Lead researcher, sustainability</span></div>
+        <div class="person"><b><a href="https://www.abonyilab.com/about-us/members">All members ↗</a></b><span>Researchers and PhD students</span></div>
+      </div>
+      <div class="contact">
+        <h3>Get in touch</h3>
+        <p><a href="mailto:janos@abonyilab.com">janos@abonyilab.com</a></p>
+        <p>University of Pannonia<br>10 Egyetem Street, H-8200 Veszprém, Hungary</p>
+        <p><a href="https://www.abonyilab.com/about-us/open-positions">Open positions</a> · <a href="https://www.abonyilab.com/about-us/trainings-and-services">Trainings and services</a></p>
+        <a class="btn primary" href="https://www.abonyilab.com">www.abonyilab.com <span class="arr">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <a href="https://uni-pannon.hu"><img src="assets/logo/pe-logo-white.svg" alt="Pannon Egyetem – University of Pannonia" width="200" height="54"></a>
+      <nav aria-label="Footer">
+        <a href="https://www.abonyilab.com">abonyilab.com</a>
+        <a href="https://github.com/ComplexSystemsIntelligence">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=u1uw8A8AAAAJ">Google Scholar</a>
+        <a href="https://uni-pannon.hu">uni-pannon.hu</a>
+      </nav>
+    </div>
+    <div class="fine">
+      The research group is supported by the Hungarian Research Network (HUN-REN) and the National Research, Development and Innovation Office (NKFIH), project OTKA 143482.
+      The textbooks are released under Creative Commons non-commercial licences and their code under the MIT licence; see each repository for details.
+      The name, crest and logo of the University of Pannonia are elements of the university's visual identity and are not covered by these licences.
+      Fonts: Raleway and IBM Plex (SIL Open Font License 1.1).
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var c=document.getElementById('net'); if(!c||!c.getContext) return;
+  var ctx=c.getContext('2d'), dpr=Math.min(window.devicePixelRatio||1,2), W=0, H=0, nodes=[], edges=[], bridges=[], hubs=[], t0=performance.now();
+  var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function rnd(seed){return function(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646;};}
+  function build(){
+    var r=c.getBoundingClientRect(); W=r.width; H=r.height; c.width=W*dpr; c.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    var R=rnd(11), centers=[[.30,.30],[.74,.24],[.56,.64]], sizes=[18,15,17]; nodes=[];
+    centers.forEach(function(cc,k){for(var i=0;i<sizes[k];i++){var a=R()*6.283,d=Math.sqrt(-2*Math.log(R()+1e-9))*.075;nodes.push({x:cc[0]+Math.cos(a)*d,y:cc[1]+Math.sin(a)*d*.85,c:k,r:2.2+R()*2.6,p:R()*6.283,s:.3+R()*.5});}});
+    edges=[]; var seen={};
+    nodes.forEach(function(n,i){var ds=nodes.map(function(m,j){return [(m.x-n.x)*(m.x-n.x)+(m.y-n.y)*(m.y-n.y),j];}).filter(function(e){return e[1]!==i;}).sort(function(a,b){return a[0]-b[0];}).slice(0,3);ds.forEach(function(e){var k=Math.min(i,e[1])+'-'+Math.max(i,e[1]);if(!seen[k]){seen[k]=1;edges.push([i,e[1]]);}});});
+    bridges=[]; hubs=[];
+    [[0,1],[1,2],[0,2]].forEach(function(p){var best=[9,0,0];nodes.forEach(function(a,i){if(a.c!==p[0])return;nodes.forEach(function(b,j){if(b.c!==p[1])return;var d=(a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y);if(d<best[0])best=[d,i,j];});});bridges.push([best[1],best[2]]);hubs.push(best[1],best[2]);});
+  }
+  function pos(n,t){var a=still?0:t*.00025*n.s; return [ (n.x+Math.cos(n.p+a)*.012)*W, (n.y+Math.sin(n.p+a*1.3)*.016)*H ];}
+  function draw(t){
+    ctx.clearRect(0,0,W,H);
+    var P=nodes.map(function(n){return pos(n,t);});
+    ctx.strokeStyle='rgba(255,255,255,.22)'; ctx.lineWidth=1.2; ctx.beginPath();
+    edges.forEach(function(e){ctx.moveTo(P[e[0]][0],P[e[0]][1]);ctx.lineTo(P[e[1]][0],P[e[1]][1]);}); ctx.stroke();
+    ctx.strokeStyle='rgba(224,123,57,.9)'; ctx.lineWidth=1.8; ctx.setLineDash([5,5]); ctx.lineDashOffset=still?0:-t*.01; ctx.beginPath();
+    bridges.forEach(function(e){ctx.moveTo(P[e[0]][0],P[e[0]][1]);ctx.lineTo(P[e[1]][0],P[e[1]][1]);}); ctx.stroke(); ctx.setLineDash([]);
+    nodes.forEach(function(n,i){ctx.beginPath(); var h=hubs.indexOf(i)>=0; ctx.fillStyle=h?'#E07B39':'rgba(255,255,255,.78)'; ctx.arc(P[i][0],P[i][1],h?5.5:n.r,0,6.283); ctx.fill();});
+    if(!still) requestAnimationFrame(draw);
+  }
+  build(); requestAnimationFrame(draw);
+  var to; window.addEventListener('resize',function(){clearTimeout(to);to=setTimeout(function(){build(); if(still) draw(0);},150);});
+})();
+</script>
+</body>
+</html>
