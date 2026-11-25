@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Complex Systems Intelligence · AbonyiLab – University of Pannonia</title>
-<meta name="description" content="Open textbooks, research software and data of the HUN-REN–PE Complex Systems Monitoring Research Group (AbonyiLab) at the University of Pannonia, Veszprém, Hungary.">
+<meta name="description" content="Open textbooks, research software (including the fuzzyclust Python toolbox) and data of the HUN-REN–PE Complex Systems Monitoring Research Group (AbonyiLab) at the University of Pannonia, Veszprém, Hungary.">
 <meta name="theme-color" content="#285780">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
@@ -68,6 +68,9 @@ a:hover{color:var(--dark)}
 .hero h1{font:900 clamp(44px,7vw,88px)/1.0 var(--head);letter-spacing:-1px;margin:18px 0 22px;max-width:760px}
 .hero .lead{font:400 italic clamp(19px,2.1vw,24px)/1.45 var(--serif);color:#DCE7F2;max-width:640px;margin:0 0 34px}
 .btns{display:flex;flex-wrap:wrap;gap:14px}
+.news{display:inline-flex;align-items:center;gap:10px;margin:0 0 26px;padding:7px 14px 7px 7px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#fff;text-decoration:none;font-size:15px;line-height:1.3}
+.news b{font:700 12px/1 var(--head);letter-spacing:1.2px;text-transform:uppercase;background:var(--orange);color:#fff;border-radius:999px;padding:6px 10px}
+.news:hover{background:rgba(255,255,255,.14)}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:10px;font:700 15px/1 var(--head);letter-spacing:.3px;text-decoration:none;transition:transform .15s ease,background .15s ease}
 .btn:hover{transform:translateY(-1px)}
 .btn.primary{background:var(--orange);color:#fff}
@@ -127,6 +130,12 @@ section.alt{background:var(--wash)}
 .book .links a:hover{border-color:var(--blue);background:var(--wash)}
 .book .links a.main{background:var(--blue);border-color:var(--blue);color:#fff}
 .book .links a.main:hover{background:var(--dark)}
+.book.wide{flex-direction:row;margin:0 0 30px}
+.book.wide .cover{height:auto;width:300px;flex:none;padding:34px 30px;border-bottom:0;border-right:1px solid var(--line);align-items:center}
+.book.wide .body{padding:30px 34px}
+.book.wide h3{font-size:30px}
+.book .pip{margin:0 0 18px;font:600 15px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--dark)}
+.book .pip code{display:inline-block;background:var(--wash);border:1px solid var(--line);border-radius:8px;padding:9px 13px}
 .book .soon{font:700 13.5px/1 var(--head);color:var(--muted);padding:10px 13px;border-radius:8px;background:var(--wash);border:1.5px dashed var(--line)}
 .series{margin-top:46px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r);background:#fff}
 .series div{padding:22px 24px;border-right:1px solid var(--line)}
@@ -203,6 +212,9 @@ footer .fine a{color:#DCE7F2}
   .hero{padding:56px 0 120px}
   .hero canvas{width:100%;opacity:.25}
   .books,.areas,.sw,.mono,.team,.flow,.series{grid-template-columns:1fr}
+  .book.wide{flex-direction:column}
+  .news{border-radius:16px;font-size:14px}
+  .book.wide .cover{width:auto;border-right:0;border-bottom:1px solid var(--line);padding:30px 0 0;height:300px;align-items:flex-start}
   .series div{border-right:0;border-bottom:1px solid var(--line)}
   .series div:last-child{border-bottom:0}
   section{padding:64px 0}
@@ -237,6 +249,7 @@ footer .fine a{color:#DCE7F2}
   <img class="crest" src="assets/logo/pe-crest-white.svg" alt="" aria-hidden="true">
   <canvas id="net" aria-hidden="true"></canvas>
   <div class="wrap">
+    <a class="news" href="#fuzzyclust"><b>New</b> fuzzyclust 1.0 – fuzzy clustering in Python, with an open 384-page book <span class="arr" aria-hidden="true">→</span></a>
     <div class="kicker">Helping complex socio-technical systems learn</div>
     <h1 id="hero-title">Complex Systems Intelligence</h1>
     <p class="lead">Open textbooks, interactive learning tools, research software and data from the HUN-REN–PE Complex Systems Monitoring Research Group at the University of Pannonia.</p>
@@ -385,6 +398,25 @@ footer .fine a{color:#DCE7F2}
       <div class="kicker">Software and data</div>
       <h2 id="sw-title">Tools and datasets to build on</h2>
     </div>
+    <article class="book wide" id="fuzzyclust">
+      <a class="cover" href="https://complexsystemsintelligence.github.io/fuzzyclust/" tabindex="-1" aria-hidden="true"><picture><source srcset="assets/covers/fuzzyclust.webp" type="image/webp"><img src="assets/covers/fuzzyclust.jpg" alt="" width="220" height="311"></picture></a>
+      <div class="body">
+        <div class="tag">Python toolbox · Open book</div>
+        <h3>fuzzyclust</h3>
+        <p class="en">Fuzzy Clustering and Data Analysis in Python</p>
+        <p class="desc">A scikit-learn compatible toolbox for fuzzy clustering and the methods built on it: fuzzy c-means, Gustafson–Kessel and Gath–Geva clustering, cluster validity, fuzzy Sammon mapping, robust and kernel variants, graph-based clustering, Takagi–Sugeno model identification, time-series segmentation, and relational, incomplete, very large and image data. It succeeds the group's Fuzzy Clustering and Data Analysis Toolbox for MATLAB; every method is explained in the companion book and demonstrated by runnable examples.</p>
+        <p class="pip"><code>pip install fuzzyclust</code></p>
+        <ul class="meta"><li>Version 1.0</li><li>19 sub-packages</li><li>61 gallery examples</li><li>384-page book (CC BY 4.0)</li><li>MIT licence</li></ul>
+        <div class="links">
+          <a class="main" href="https://complexsystemsintelligence.github.io/fuzzyclust/">Documentation</a>
+          <a href="https://complexsystemsintelligence.github.io/fuzzyclust/fuzzyclust-book.pdf">Book (PDF)</a>
+          <a href="https://complexsystemsintelligence.github.io/fuzzyclust/auto_examples/index.html">Examples</a>
+          <a href="https://pypi.org/project/fuzzyclust/">PyPI</a>
+          <a href="https://github.com/ComplexSystemsIntelligence/fuzzyclust">Source</a>
+          <a href="https://doi.org/10.5281/zenodo.24543754">DOI</a>
+        </div>
+      </div>
+    </article>
     <div class="sw">
       <article>
         <h3>Research code</h3>
@@ -398,7 +430,7 @@ footer .fine a{color:#DCE7F2}
       <article>
         <h3>Toolboxes</h3>
         <ul>
-          <li><a href="https://www.abonyilab.com/fclusttoolbox">Fuzzy Clustering and Data Analysis Toolbox</a> <span>– MATLAB; a Python successor is under development</span></li>
+          <li><a href="https://www.abonyilab.com/fclusttoolbox">Fuzzy Clustering and Data Analysis Toolbox</a> <span>– MATLAB (2005); its Python successor is </span><a href="#fuzzyclust">fuzzyclust</a></li>
           <li><a href="https://www.abonyilab.com/gp_index">GP-OLS</a> <span>– genetic programming for nonlinear input–output models</span></li>
           <li><a href="https://www.abonyilab.com/easy_iec">EASY-IEC</a> <span>– interactive evolutionary computing</span></li>
           <li><a href="http://www.mathworks.com/matlabcentral/fileexchange/authors/18034">MATLAB Central author page</a></li>
@@ -417,7 +449,7 @@ footer .fine a{color:#DCE7F2}
         <ul>
           <li><a href="https://www.abonyilab.com/about-us/software-and-data">Full list of programs and data</a> <span>on the group website</span></li>
           <li><a href="https://github.com/abonyilab">github.com/abonyilab</a> <span>– research repositories</span></li>
-          <li><a href="https://github.com/ComplexSystemsIntelligence">github.com/ComplexSystemsIntelligence</a> <span>– sources of the open textbooks</span></li>
+          <li><a href="https://github.com/ComplexSystemsIntelligence">github.com/ComplexSystemsIntelligence</a> <span>– sources of the open textbooks and of fuzzyclust</span></li>
           <li><a href="https://scholar.google.com/citations?user=u1uw8A8AAAAJ">Google Scholar</a> <span>– publications</span></li>
         </ul>
       </article>
@@ -484,7 +516,7 @@ footer .fine a{color:#DCE7F2}
     </div>
     <div class="fine">
       The research group is supported by the Hungarian Research Network (HUN-REN) and the National Research, Development and Innovation Office (NKFIH), project OTKA 143482.
-      The textbooks are released under Creative Commons non-commercial licences and their code under the MIT licence; see each repository for details.
+      The textbooks are released under Creative Commons non-commercial licences, the fuzzyclust book under CC BY 4.0, and all code under the MIT licence; see each repository for details.
       The name, crest and logo of the University of Pannonia are elements of the university's visual identity and are not covered by these licences.
       Fonts: Raleway and IBM Plex (SIL Open Font License 1.1).
     </div>
