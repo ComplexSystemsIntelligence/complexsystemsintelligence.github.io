@@ -113,7 +113,7 @@ section.alt{background:var(--wash)}
 .loop-label{text-align:center;font:400 italic 19px/1.4 var(--serif);color:#8A5A35;margin-top:12px}
 
 /* textbooks */
-.books{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.books{display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
 .book{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s ease,transform .2s ease}
 .book:hover{box-shadow:0 18px 40px -22px rgba(27,58,87,.45);transform:translateY(-2px)}
 .book .cover{background:linear-gradient(160deg,var(--light),#fff);padding:30px 0 0;display:flex;justify-content:center;border-bottom:1px solid var(--line);height:300px;overflow:hidden}
@@ -258,8 +258,8 @@ footer .fine a{color:#DCE7F2}
       <a class="btn ghost" href="https://www.abonyilab.com">Visit the research group <span class="arr">↗</span></a>
     </div>
     <ul class="stats" aria-label="At a glance">
-      <li><b>3</b><span>open textbooks</span></li>
-      <li><b>59</b><span>handbook chapters</span></li>
+      <li><b>4</b><span>open textbooks</span></li>
+      <li><b>71</b><span>handbook chapters</span></li>
       <li><b>68</b><span>Colab notebooks</span></li>
       <li><b>54</b><span>Excel templates</span></li>
       <li><b>23</b><span>browser practice apps</span></li>
@@ -306,7 +306,7 @@ footer .fine a{color:#DCE7F2}
     <div class="shead">
       <div class="kicker">Open textbooks</div>
       <h2 id="tb-title">Learn it, try it, run it</h2>
-      <p>Open-access university textbooks in Hungarian. Each one is a searchable web book with printable PDF and EPUB editions, practice materials – browser apps or Excel templates – and Google Colab notebooks that run with one click.</p>
+      <p>Open-access university textbooks. The three Hungarian ones are searchable web books with printable PDF and EPUB editions, practice materials – browser apps or Excel templates – and Google Colab notebooks that run with one click. The English one is the companion book of the fuzzyclust Python toolbox: every method in it comes with a runnable example.</p>
     </div>
 
     <div class="books">
@@ -363,13 +363,31 @@ footer .fine a{color:#DCE7F2}
           </div>
         </div>
       </article>
+
+      <article class="book">
+        <a class="cover" href="https://complexsystemsintelligence.github.io/fuzzyclust/fuzzyclust-book.pdf" tabindex="-1" aria-hidden="true"><picture><source srcset="assets/covers/fuzzyclust.webp" type="image/webp"><img src="assets/covers/fuzzyclust.jpg" alt="" width="220" height="311"></picture></a>
+        <div class="body">
+          <div class="tag">Data science · in English</div>
+          <h3>Fuzzy Clustering and Data Analysis in Python</h3>
+          <p class="en">The fuzzyclust toolbox</p>
+          <p class="desc">From fuzzy c-means and the Gustafson–Kessel and Gath–Geva algorithms through cluster validity and visualization to model identification, time-series segmentation and relational, incomplete, very large and image data – each method with the Python code that produces its figures.</p>
+          <ul class="meta"><li>Version 1.0</li><li>12 chapters + 3 appendices</li><li>384 pages</li><li>61 runnable examples</li><li>Jupyter notebooks</li></ul>
+          <div class="links">
+            <a class="main" href="https://complexsystemsintelligence.github.io/fuzzyclust/fuzzyclust-book.pdf">Read (PDF)</a>
+            <a href="https://complexsystemsintelligence.github.io/fuzzyclust/auto_examples/index.html">Examples</a>
+            <a href="https://complexsystemsintelligence.github.io/fuzzyclust/">Documentation</a>
+            <a href="https://github.com/ComplexSystemsIntelligence/fuzzyclust">Source</a>
+            <a href="https://doi.org/10.5281/zenodo.24543754">DOI</a>
+          </div>
+        </div>
+      </article>
     </div>
 
     <div class="series" aria-label="How the textbooks are made">
       <div><b>Read anywhere</b><span>Searchable web book, printable PDF and EPUB for e-readers</span></div>
       <div><b>Try it in the browser</b><span>Practice apps and Excel templates with no installation; Colab notebooks that run with one click</span></div>
       <div><b>Reproducible</b><span>Figures drawn in TikZ; worked examples reproducible from the repositories</span></div>
-      <div><b>Open and citable</b><span>Creative Commons non-commercial licences for text, MIT for code; releases archived on Zenodo</span></div>
+      <div><b>Open and citable</b><span>Creative Commons licences for text (non-commercial for the Hungarian textbooks), MIT for code; releases archived on Zenodo</span></div>
     </div>
   </div>
 </section>
