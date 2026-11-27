@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://complexsystemsintelligence.github.io/fuzzyclust/book/sitemap.xml
