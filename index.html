@@ -113,7 +113,8 @@ section.alt{background:var(--wash)}
 .loop-label{text-align:center;font:400 italic 19px/1.4 var(--serif);color:#8A5A35;margin-top:12px}
 
 /* textbooks */
-.books{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.books{display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
+.books .book{scroll-margin-top:96px}
 .book{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s ease,transform .2s ease}
 .book:hover{box-shadow:0 18px 40px -22px rgba(27,58,87,.45);transform:translateY(-2px)}
 .book .cover{background:linear-gradient(160deg,var(--light),#fff);padding:30px 0 0;display:flex;justify-content:center;border-bottom:1px solid var(--line);height:300px;overflow:hidden}
@@ -250,7 +251,7 @@ footer .fine a{color:#DCE7F2}
   <img class="crest" src="assets/logo/pe-crest-white.svg" alt="" aria-hidden="true">
   <canvas id="net" aria-hidden="true"></canvas>
   <div class="wrap">
-    <a class="news" href="#fuzzyclust"><b>New</b> fuzzyclust 1.0 – fuzzy clustering in Python, with an open 384-page book <span class="arr" aria-hidden="true">→</span></a>
+    <a class="news" href="#modellalapu-donteshozas"><b>New</b> Modellalapú döntéshozatal – an open textbook on model-based decision making, with 28 interactive decision workshops <span class="arr" aria-hidden="true">→</span></a>
     <div class="kicker">Helping complex socio-technical systems learn</div>
     <h1 id="hero-title">Complex Systems Intelligence</h1>
     <p class="lead">Open textbooks, interactive learning tools, research software and data from the HUN-REN–PE Complex Systems Monitoring Research Group at the University of Pannonia.</p>
@@ -259,11 +260,11 @@ footer .fine a{color:#DCE7F2}
       <a class="btn ghost" href="https://www.abonyilab.com">Visit the research group <span class="arr">↗</span></a>
     </div>
     <ul class="stats" aria-label="At a glance">
-      <li><b>3</b><span>open textbooks</span></li>
-      <li><b>59</b><span>handbook chapters</span></li>
-      <li><b>68</b><span>Colab notebooks</span></li>
-      <li><b>54</b><span>Excel templates</span></li>
-      <li><b>23</b><span>browser practice apps</span></li>
+      <li><b>4</b><span>open textbooks</span></li>
+      <li><b>87</b><span>textbook chapters</span></li>
+      <li><b>88</b><span>Colab notebooks</span></li>
+      <li><b>75</b><span>Excel workbooks</span></li>
+      <li><b>51</b><span>browser practice apps</span></li>
     </ul>
   </div>
   <svg class="slant" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true"><polygon points="0,100 1440,30 1440,40 0,110" fill="#E07B39"/><polygon points="0,110 1440,40 1440,110" fill="#fff"/></svg>
@@ -343,6 +344,24 @@ footer .fine a{color:#DCE7F2}
             <a href="https://complexsystemsintelligence.github.io/biztonsagkritikus-rendszerek/kezikonyv/biztonsagkritikus-rendszerek.epub">EPUB</a>
             <a href="https://github.com/ComplexSystemsIntelligence/biztonsagkritikus-rendszerek">Source</a>
             <a href="https://doi.org/10.5281/zenodo.24413011">DOI</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="book" id="modellalapu-donteshozas">
+        <a class="cover" href="https://complexsystemsintelligence.github.io/modellalapu-donteshozas/" tabindex="-1" aria-hidden="true"><picture><source srcset="assets/covers/modellalapu-donteshozas.webp" type="image/webp"><img src="assets/covers/modellalapu-donteshozas.jpg" alt="" width="220" height="311"></picture></a>
+        <div class="body">
+          <div class="tag">Decision science</div>
+          <h3>Modellalapú döntéshozatal</h3>
+          <p class="en">Model-Based Decision Making: Thinking Tools, Multi-Criteria Methods and Interactive Decision Workshops</p>
+          <p class="desc">From framing the decision and generating alternatives through multi-criteria methods (AHP, TOPSIS, PROMETHEE, ELECTRE), decision trees, Bayesian updating and Monte Carlo simulation to dynamic systems, networks, game theory, team decisions and AI-assisted decision making – with seven running cases and 107 opening cards.</p>
+          <ul class="meta"><li>Textbook + decision workshop</li><li>28 chapters</li><li>28 practice apps</li><li>21 Excel workbooks</li><li>20 Colab notebooks</li></ul>
+          <div class="links">
+            <a class="main" href="https://complexsystemsintelligence.github.io/modellalapu-donteshozas/">Read online</a>
+            <a href="https://complexsystemsintelligence.github.io/modellalapu-donteshozas/kezikonyv/modellalapu-donteshozas.pdf">PDF</a>
+            <a href="https://complexsystemsintelligence.github.io/modellalapu-donteshozas/kezikonyv/modellalapu-donteshozas.epub">EPUB</a>
+            <a href="https://complexsystemsintelligence.github.io/modellalapu-donteshozas/gyakorlat/">Workshop</a>
+            <a href="https://github.com/ComplexSystemsIntelligence/modellalapu-donteshozas">Source</a>
           </div>
         </div>
       </article>
