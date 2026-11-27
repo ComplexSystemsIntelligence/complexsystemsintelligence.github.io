@@ -2,3 +2,10 @@ User-agent: *
 Allow: /
 
 Sitemap: https://complexsystemsintelligence.github.io/fuzzyclust/book/sitemap.xml
+Sitemap: https://complexsystemsintelligence.github.io/adatbanyaszat/sitemap.xml
+Sitemap: https://complexsystemsintelligence.github.io/biztonsagkritikus-rendszerek/kezikonyv/sitemap.xml
+Sitemap: https://complexsystemsintelligence.github.io/biztonsagkritikus-rendszerek/gyakorlat/sitemap.xml
+Sitemap: https://complexsystemsintelligence.github.io/modellalapu-donteshozas/kezikonyv/sitemap.xml
+Sitemap: https://complexsystemsintelligence.github.io/modellalapu-donteshozas/gyakorlat/sitemap.xml
+Sitemap: https://complexsystemsintelligence.github.io/rendszermernokseg/kezikonyv/sitemap.xml
+Sitemap: https://complexsystemsintelligence.github.io/rendszermernokseg/gyakorlat/sitemap.xml
